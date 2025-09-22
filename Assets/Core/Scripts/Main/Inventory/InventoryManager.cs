@@ -1,7 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 
 namespace Demo
@@ -49,11 +47,13 @@ namespace Demo
     {
         public int ItemID;
         public Sprite ItemIcon;
+        public string ItemName;
 
-        public InventoryItemData(int id, Sprite sprite)
+        public InventoryItemData(int id, Sprite sprite, string name)
         {
             ItemID = id;
             ItemIcon = sprite;
+            ItemName = name;
         }
     }
 }

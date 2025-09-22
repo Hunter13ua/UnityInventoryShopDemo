@@ -7,6 +7,9 @@ namespace Demo.UI
     {
         public override PanelType PanelType => PanelType.Inventory;
 
+        [SerializeField] private GameObject inventoryItemPrefab;
+
+        [Header("References")]
         [SerializeField] private TMPro.TMP_Text currencyLabel;
         [SerializeField] private GameObject boostGameObject;
         [SerializeField] private TMPro.TMP_Text boostLabel;
@@ -24,6 +27,7 @@ namespace Demo.UI
             if (inventoryManager != null)
             {
                 inventoryManager.OnCurrencyAmountChanged += UpdateCurrencyLabel;
+                inventoryManager.OnInventoryItemAdded += AddItemInstance;
             }
         }
 
@@ -32,6 +36,7 @@ namespace Demo.UI
             if (inventoryManager != null)
             {
                 inventoryManager.OnCurrencyAmountChanged -= UpdateCurrencyLabel;
+                inventoryManager.OnInventoryItemAdded -= AddItemInstance;
             }
         }
 
@@ -40,6 +45,18 @@ namespace Demo.UI
             if (currencyLabel != null)
             {
                 currencyLabel.text = value.ToString();
+            }
+        }
+
+        private void AddItemInstance(InventoryItemData item)
+        {
+            // this is not a good way to handle the event
+            // at the very least this requires Object Pooling in actual product
+            if (inventoryItemPrefab != null)
+            {
+                GameObject itemGO = Instantiate(inventoryItemPrefab, transform);
+                InventoryItem invItem = itemGO.GetComponent<InventoryItem>();
+                invItem.SetInfo(item);
             }
         }
     }

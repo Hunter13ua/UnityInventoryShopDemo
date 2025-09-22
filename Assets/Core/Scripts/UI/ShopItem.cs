@@ -42,7 +42,10 @@ namespace Demo.UI
                         inventoryManager.GainCurrency(_value);
                         break;
                     case ShopItemType.Item:
-                        InventoryItemData data = new(_value, itemIcon.sprite);
+                        // this is not the "normal way" to add items
+                        // instead for actual product, implement an item collection
+                        // and add item by its ID
+                        InventoryItemData data = new(_value, itemIcon.sprite, itemNameLabel.text);
                         inventoryManager.AddItem(data);
                         break;
                     case ShopItemType.Boost:

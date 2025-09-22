@@ -1195,7 +1195,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbc35a0413328f84a9ffdc9a7da49f48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Demo::Demo.InventoryManager
-  itemCollection: {fileID: 0}
 --- !u!1 &1046607801
 GameObject:
   m_ObjectHideFlags: 0
@@ -1778,6 +1777,7 @@ GameObject:
   - component: {fileID: 1840590278}
   - component: {fileID: 1840590280}
   - component: {fileID: 1840590279}
+  - component: {fileID: 1840590282}
   - component: {fileID: 1840590281}
   m_Layer: 5
   m_Name: InventoryPanel
@@ -1855,9 +1855,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fd1b3f927d08414694bfb3854cd0c18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Demo.UI::Demo.UI.InventoryPanel
+  inventoryItemPrefab: {fileID: 313640745072397778, guid: 9049c42b75fc690438f6657c7163e8e6, type: 3}
   currencyLabel: {fileID: 1407409361}
   boostGameObject: {fileID: 1985868350}
   boostLabel: {fileID: 2143282}
+--- !u!114 &1840590282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1840590277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a8695521f0d02e499659fee002a26c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.GridLayoutGroup
+  m_Padding:
+    m_Left: 50
+    m_Right: 50
+    m_Top: 50
+    m_Bottom: 50
+  m_ChildAlignment: 0
+  m_StartCorner: 0
+  m_StartAxis: 0
+  m_CellSize: {x: 140, y: 140}
+  m_Spacing: {x: 20, y: 20}
+  m_Constraint: 0
+  m_ConstraintCount: 2
 --- !u!1 &1898261848
 GameObject:
   m_ObjectHideFlags: 0
