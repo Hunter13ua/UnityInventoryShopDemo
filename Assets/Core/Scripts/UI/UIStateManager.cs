@@ -6,6 +6,7 @@ namespace Demo.UI
 {
     public class UIStateManager : MonoBehaviour
     {
+        [SerializeField] private PopUpController popUp;
         [SerializeField] private List<PanelEntry> panels;
 
         private void Start()
@@ -31,6 +32,14 @@ namespace Demo.UI
             else
             {
                 Debug.LogError($"No panel of type {panel} found.");
+            }
+        }
+
+        public void TriggerPopUp()
+        {
+            if (popUp != null)
+            {
+                popUp.SetTimer(1);
             }
         }
     }

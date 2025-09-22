@@ -15,8 +15,16 @@ namespace Demo.UI
         private int _value;
 
         private InventoryManager inventoryManager;
+        private UIStateManager uIStateManager;
 
-        public void SetInfo(ShopItemData shopItem, InventoryManager inventoryReference)
+        private void Awake()
+        {
+            // use DI framework (e.g. Zenject instead)
+            inventoryManager = FindFirstObjectByType<InventoryManager>();
+            uIStateManager = FindFirstObjectByType<UIStateManager>();
+        }
+
+        public void SetInfo(ShopItemData shopItem)
         {
             _price = shopItem.ItemPrice;
             _shopItemType = shopItem.ItemType;
@@ -26,8 +34,6 @@ namespace Demo.UI
             itemNameLabel.text = shopItem.ItemName;
             itemDescriptionLabel.text = shopItem.ItemDescription;
             itemPriceLabel.text = _price.ToString();
-
-            inventoryManager = inventoryReference;
         }
 
         public void OnButtonClicked()
@@ -35,6 +41,9 @@ namespace Demo.UI
             if (inventoryManager != null && inventoryManager.CanSpend(_price))
             {
                 inventoryManager.SpendCurrency(_price);
+
+                // visual feedback
+                uIStateManager.TriggerPopUp();
 
                 switch (_shopItemType)
                 {

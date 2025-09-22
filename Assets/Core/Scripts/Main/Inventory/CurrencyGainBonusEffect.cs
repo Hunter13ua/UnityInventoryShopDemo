@@ -31,7 +31,7 @@ namespace Demo
                 }
 
                 _previousTimerValue = _currentTimer;
-                OnTimerChanged?.Invoke(Mathf.FloorToInt(_currentTimer));
+                OnTimerChanged?.Invoke(Mathf.CeilToInt(_currentTimer));
             }
         }
 
