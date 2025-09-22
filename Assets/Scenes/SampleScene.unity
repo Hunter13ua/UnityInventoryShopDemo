@@ -1034,6 +1034,7 @@ GameObject:
   - component: {fileID: 737544966}
   - component: {fileID: 737544969}
   - component: {fileID: 737544968}
+  - component: {fileID: 737544970}
   - component: {fileID: 737544967}
   m_Layer: 5
   m_Name: ShopPanel
@@ -1073,6 +1074,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3370d64ac4615f458f743d0b8747739, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Demo.UI::Demo.UI.ShopPanel
+  shopItemPrefab: {fileID: 1431097575403165312, guid: 7965dc52378576f4dbb0279b93900f73, type: 3}
 --- !u!114 &737544968
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1111,6 +1113,30 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 737544965}
   m_CullTransparentMesh: 1
+--- !u!114 &737544970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 737544965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a8695521f0d02e499659fee002a26c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.GridLayoutGroup
+  m_Padding:
+    m_Left: 50
+    m_Right: 50
+    m_Top: 50
+    m_Bottom: 50
+  m_ChildAlignment: 0
+  m_StartCorner: 0
+  m_StartAxis: 0
+  m_CellSize: {x: 140, y: 140}
+  m_Spacing: {x: 20, y: 20}
+  m_Constraint: 0
+  m_ConstraintCount: 2
 --- !u!1 &833919509
 GameObject:
   m_ObjectHideFlags: 0
@@ -1120,6 +1146,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 833919510}
+  - component: {fileID: 833919512}
+  - component: {fileID: 833919511}
   m_Layer: 0
   m_Name: GameLogic
   m_TagString: Untagged
@@ -1142,6 +1170,32 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &833919511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 833919509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 832bab5bd3007944b980b97d0b577d73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Demo::Demo.ShopManager
+  shopItemList: {fileID: 11400000, guid: aab460b8bf5146e4c8ff0f14e9d591a4, type: 2}
+--- !u!114 &833919512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 833919509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbc35a0413328f84a9ffdc9a7da49f48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Demo::Demo.InventoryManager
+  itemCollection: {fileID: 0}
 --- !u!1 &1046607801
 GameObject:
   m_ObjectHideFlags: 0
@@ -1801,6 +1855,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fd1b3f927d08414694bfb3854cd0c18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Demo.UI::Demo.UI.InventoryPanel
+  currencyLabel: {fileID: 1407409361}
+  boostGameObject: {fileID: 1985868350}
+  boostLabel: {fileID: 2143282}
 --- !u!1 &1898261848
 GameObject:
   m_ObjectHideFlags: 0

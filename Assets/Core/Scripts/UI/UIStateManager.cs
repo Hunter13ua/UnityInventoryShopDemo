@@ -1,13 +1,20 @@
 using System;
 using System.Collections.Generic;
-using Mono.Cecil.Cil;
 using UnityEngine;
 
 namespace Demo.UI
 {
     public class UIStateManager : MonoBehaviour
     {
-        public List<PanelEntry> panels = new();
+        [SerializeField] private List<PanelEntry> panels;
+
+        private void Start()
+        {
+            foreach (var p in panels)
+            {
+                p.panelReference.Initialize();
+            }
+        }
 
         public void ShowPanel(PanelType panel)
         {
