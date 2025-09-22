@@ -7,7 +7,7 @@ namespace Demo
     [CreateAssetMenu(fileName = "ShopScriptableObject", menuName = "Scriptable Objects/ShopScriptableObject")]
     public class ShopScriptableObject : ScriptableObject
     {
-        public List<ShopItemData> shopItems;
+        [SerializeField] public List<ShopItemData> shopItems;
     }
 
     [Serializable]
