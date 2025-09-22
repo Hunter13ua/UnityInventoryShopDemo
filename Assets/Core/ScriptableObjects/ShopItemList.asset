@@ -33,7 +33,7 @@ MonoBehaviour:
     Value: 0
   - ItemName: Boost
     ItemIcon: {fileID: 21300000, guid: 075f0589a74e75540aac3a1eb5aeeeb7, type: 3}
-    ItemDescription: Temporary effect
+    ItemDescription: Currency gain x5
     ItemPrice: 500
     ItemType: 2
-    Value: 30
+    Value: 15

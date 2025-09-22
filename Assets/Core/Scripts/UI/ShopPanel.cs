@@ -10,16 +10,13 @@ namespace Demo.UI
 
         private ShopManager shopManager;
         private InventoryManager inventoryManager;
-
-        protected void Awake()
+        
+        public override void Initialize()
         {
             // use DI framework (e.g. Zenject instead)
             shopManager = FindFirstObjectByType<ShopManager>();
             inventoryManager = FindFirstObjectByType<InventoryManager>();
-        }
-        
-        public override void Initialize()
-        {
+
             base.Initialize();
 
             if (shopManager != null && shopItemPrefab != null)

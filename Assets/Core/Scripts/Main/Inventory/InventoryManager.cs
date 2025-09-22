@@ -8,9 +8,17 @@ namespace Demo
     {
         private int _currency = 1000;
         private List<InventoryItemData> _items = new();
+        private CurrencyGainBonusEffect effectController = new();
 
         public event Action<int> OnCurrencyAmountChanged;
         public event Action<InventoryItemData> OnInventoryItemAdded;
+        public event Action<int> OnBonusEffectTimerChanged
+        {
+            add => effectController.OnTimerChanged += value;
+            remove => effectController.OnTimerChanged -= value;
+        }
+
+        private void Update() => effectController.UpdateTick();
 
         public void AddItem(InventoryItemData item)
         {
@@ -21,7 +29,7 @@ namespace Demo
         public void GainCurrency(int amount)
         {
             // reminder to implement int overflow checks in actual product, im lazy here
-            _currency += amount;
+            _currency += amount * effectController.GetCurrentEffectMultiplier();
 
             OnCurrencyAmountChanged?.Invoke(_currency);
         }
@@ -39,6 +47,11 @@ namespace Demo
 
                 OnCurrencyAmountChanged?.Invoke(_currency);
             }
+        }
+
+        public void AddBonusEffectTime(float value)
+        {
+            effectController.AddTimer(value);
         }
     }
 

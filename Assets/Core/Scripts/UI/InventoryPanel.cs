@@ -9,11 +9,6 @@ namespace Demo.UI
 
         [SerializeField] private GameObject inventoryItemPrefab;
 
-        [Header("References")]
-        [SerializeField] private TMPro.TMP_Text currencyLabel;
-        [SerializeField] private GameObject boostGameObject;
-        [SerializeField] private TMPro.TMP_Text boostLabel;
-
         private InventoryManager inventoryManager;
 
         private void Awake()
@@ -26,7 +21,6 @@ namespace Demo.UI
         {
             if (inventoryManager != null)
             {
-                inventoryManager.OnCurrencyAmountChanged += UpdateCurrencyLabel;
                 inventoryManager.OnInventoryItemAdded += AddItemInstance;
             }
         }
@@ -35,16 +29,7 @@ namespace Demo.UI
         {
             if (inventoryManager != null)
             {
-                inventoryManager.OnCurrencyAmountChanged -= UpdateCurrencyLabel;
                 inventoryManager.OnInventoryItemAdded -= AddItemInstance;
-            }
-        }
-
-        private void UpdateCurrencyLabel(int value)
-        {
-            if (currencyLabel != null)
-            {
-                currencyLabel.text = value.ToString();
             }
         }
 

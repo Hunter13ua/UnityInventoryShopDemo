@@ -1536,6 +1536,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1663668175}
+  - component: {fileID: 1663668176}
   m_Layer: 5
   m_Name: Generic
   m_TagString: Untagged
@@ -1566,6 +1567,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1663668176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1663668174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 414220a2f79291145a70c554fadbc77c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Demo.UI.GenericUIController
+  currencyLabel: {fileID: 1407409361}
+  boostGameObject: {fileID: 1985868350}
+  boostLabel: {fileID: 2143282}
 --- !u!1 &1717919980
 GameObject:
   m_ObjectHideFlags: 0
@@ -1856,9 +1872,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Demo.UI::Demo.UI.InventoryPanel
   inventoryItemPrefab: {fileID: 313640745072397778, guid: 9049c42b75fc690438f6657c7163e8e6, type: 3}
-  currencyLabel: {fileID: 1407409361}
-  boostGameObject: {fileID: 1985868350}
-  boostLabel: {fileID: 2143282}
 --- !u!114 &1840590282
 MonoBehaviour:
   m_ObjectHideFlags: 0

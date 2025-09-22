@@ -49,6 +49,7 @@ namespace Demo.UI
                         inventoryManager.AddItem(data);
                         break;
                     case ShopItemType.Boost:
+                        inventoryManager.AddBonusEffectTime(_value);
                         break;
                 }
             }
