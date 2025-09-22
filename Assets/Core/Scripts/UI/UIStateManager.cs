@@ -1,9 +1,33 @@
 using System;
 using System.Collections.Generic;
+using Mono.Cecil.Cil;
 using UnityEngine;
 
 namespace Demo.UI
 {
+    public class UIStateManager : MonoBehaviour
+    {
+        public List<PanelEntry> panels = new();
+
+        public void ShowPanel(PanelType panel)
+        {
+            foreach (var p in panels)
+            {
+                p.panelReference.Hide();
+            }
+
+            var target = panels.Find(x => x.panelType == panel);
+            if (target != null)
+            {
+                target.panelReference.Show();
+            }
+            else
+            {
+                Debug.LogError($"No panel of type {panel} found.");
+            }
+        }
+    }
+
     [Serializable]
     public enum PanelType
     {
@@ -12,33 +36,10 @@ namespace Demo.UI
         Shop,
     }
 
-    public class UIStateManager : MonoBehaviour
+    [Serializable]
+    public class PanelEntry
     {
-        private readonly Dictionary<PanelType, UIPanel> panels = new();
-
-        public void RegisterPanel(UIPanel panel)
-        {
-            if (!panels.ContainsKey(panel.PanelType))
-            {
-                panels[panel.PanelType] = panel;
-            }
-        }
-
-        public void ShowPanel(PanelType panel)
-        {
-            foreach (var p in panels.Values)
-            {
-                p.Hide();
-            }
-
-            if (panels.TryGetValue(panel, out var target))
-            {
-                target.Show();
-            }
-            else
-            {
-                Debug.LogError($"No panel of type {panel} found.");
-            }
-        }
+        public PanelType panelType;
+        public UIPanel panelReference;
     }
 }
